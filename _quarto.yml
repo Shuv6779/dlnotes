@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "Deep Learning Notes"
@@ -7,15 +8,18 @@ book:
   date: "3/11/2023"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
     - references.qmd
+  navbar:  false
+    # search: true
+  sidebar: 
+     title: false
+     search: false
 
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: solar
   pdf:
     documentclass: scrreprt
 
