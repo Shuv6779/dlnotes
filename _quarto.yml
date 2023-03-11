@@ -2,18 +2,26 @@ project:
   type: book
   output-dir: docs
 
+html:
+  mainfont: Times New Roman
+
 book:
   title: "Deep Learning Notes"
   author: "TheG3ntleman"
-  date: "3/11/2023"
-  chapters:
-    - index.qmd
-    - references.qmd
-  navbar:  false
-    # search: true
+
+  search: false
+  page-navigation: false
   sidebar: 
-     title: false
-     search: false
+    title: false
+
+
+  chapters:      
+  - index.qmd
+  - part: artificial-neuron.qmd
+    chapters:
+      - mcculloch-pitts-neuron.qmd
+  - references.qmd
+
 
 bibliography: references.bib
 
