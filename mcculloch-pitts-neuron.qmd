@@ -1,2 +1,13 @@
-# The McCulloch-Pitts Neuron {.unnumbered}
+# The McCulloch-Pitts Neuron
+The McCulloch-Pitts neuron is a simplified mathematical model of the biological neuron. It attempts to imitate the thresholding behaviour of it's biological counterpart. @mculloch-pitts-1943
 
+## A simple definition of the model 
+Let $X_n$ be the set of all possible binary tuples of length $n$. Then the McCulloch-Pitts Neuron can be thought of as a function $f:X_n\to\{0, 1\}$ defined by,
+$$
+f(\textbf{x})= 
+\begin{cases} 
+1 & \text{ if }\sum\limits_{i=1}^n x_i \geq \theta \\
+0 & \text{ if }\sum\limits_{i=0}^n x_i < \theta \\
+\end{cases}
+$$
+here $\textbf{x}\in X_n$, $x_i$ is the $i^{th}$ entry of $\textbf{x}$, and $\theta$ is a pre-determined constant called the threshold.

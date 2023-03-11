@@ -4,6 +4,55 @@
     "href": "index.html",
     "title": "Deep Learning Notes",
     "section": "",
-    "text": "Preface\nThis is a collection of notes related to deep learning."
+    "text": "What is this?"
+  },
+  {
+    "objectID": "index.html#what-is-this",
+    "href": "index.html#what-is-this",
+    "title": "Deep Learning Notes",
+    "section": "What is this?",
+    "text": "What is this?"
+  },
+  {
+    "objectID": "mcculloch-pitts-neuron.html",
+    "href": "mcculloch-pitts-neuron.html",
+    "title": "1  The McCulloch-Pitts Neuron",
+    "section": "",
+    "text": "The McCulloch-Pitts neuron is a simplified mathematical model of the biological neuron. It attempts to imitate the thresholding behaviour of it’s biological counterpart."
+  },
+  {
+    "objectID": "mcculloch-pitts-neuron.html#the-model",
+    "href": "mcculloch-pitts-neuron.html#the-model",
+    "title": "1  The McCulloch-Pitts Neuron",
+    "section": "1.1 The model",
+    "text": "1.1 The model\nLet \\(X_n\\) be the set of all possible binary tuples of length \\(n\\). Then the McCulloch-Pitts Neuron can be thought of as a function \\(f:X_n\\to\\{0, 1\\}\\) defined by, \\[\nf(\\textbf{x})=\n\\begin{cases}\n1 & \\text{ if }\\sum\\limits_{i=1}^n x_i \\geq \\theta \\\\\n0 & \\text{ if }\\sum\\limits_{i=0}^n x_i < \\theta \\\\\n\\end{cases}\n\\] here \\(\\textbf{x}\\in X_n\\), \\(x_i\\) is the \\(i^{th}\\) entry of \\(\\textbf{x}\\), and \\(\\theta\\) is a pre-determined constant called the threshold.\n\n\n\n\nMcCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf:"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "McCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf:"
+  },
+  {
+    "objectID": "mcculloch-pitts-neuron.html#the-summary-of-the-model",
+    "href": "mcculloch-pitts-neuron.html#the-summary-of-the-model",
+    "title": "1  The McCulloch-Pitts Neuron",
+    "section": "1.1 The summary of the model",
+    "text": "1.1 The summary of the model\nLet \\(X_n\\) be the set of all possible binary tuples of length \\(n\\). Then the McCulloch-Pitts Neuron can be thought of as a function \\(f:X_n\\to\\{0, 1\\}\\) defined by, \\[\nf(\\textbf{x})=\n\\begin{cases}\n1 & \\text{ if }\\sum\\limits_{i=1}^n x_i \\geq \\theta \\\\\n0 & \\text{ if }\\sum\\limits_{i=0}^n x_i < \\theta \\\\\n\\end{cases}\n\\] here \\(\\textbf{x}\\in X_n\\), \\(x_i\\) is the \\(i^{th}\\) entry of \\(\\textbf{x}\\), and \\(\\theta\\) is a pre-determined constant called the threshold.\n\n\n\n\nMcCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf:"
+  },
+  {
+    "objectID": "mcculloch-pitts-neuron.html#the-simple-definition-of-the-model",
+    "href": "mcculloch-pitts-neuron.html#the-simple-definition-of-the-model",
+    "title": "1  The McCulloch-Pitts Neuron",
+    "section": "1.1 The simple definition of the model",
+    "text": "1.1 The simple definition of the model\nLet \\(X_n\\) be the set of all possible binary tuples of length \\(n\\). Then the McCulloch-Pitts Neuron can be thought of as a function \\(f:X_n\\to\\{0, 1\\}\\) defined by, \\[\nf(\\textbf{x})=\n\\begin{cases}\n1 & \\text{ if }\\sum\\limits_{i=1}^n x_i \\geq \\theta \\\\\n0 & \\text{ if }\\sum\\limits_{i=0}^n x_i < \\theta \\\\\n\\end{cases}\n\\] here \\(\\textbf{x}\\in X_n\\), \\(x_i\\) is the \\(i^{th}\\) entry of \\(\\textbf{x}\\), and \\(\\theta\\) is a pre-determined constant called the threshold.\n\n\n\n\nMcCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf:"
+  },
+  {
+    "objectID": "mcculloch-pitts-neuron.html#a-simple-definition-of-the-model",
+    "href": "mcculloch-pitts-neuron.html#a-simple-definition-of-the-model",
+    "title": "1  The McCulloch-Pitts Neuron",
+    "section": "1.1 A simple definition of the model",
+    "text": "1.1 A simple definition of the model\nLet \\(X_n\\) be the set of all possible binary tuples of length \\(n\\). Then the McCulloch-Pitts Neuron can be thought of as a function \\(f:X_n\\to\\{0, 1\\}\\) defined by, \\[\nf(\\textbf{x})=\n\\begin{cases}\n1 & \\text{ if }\\sum\\limits_{i=1}^n x_i \\geq \\theta \\\\\n0 & \\text{ if }\\sum\\limits_{i=0}^n x_i < \\theta \\\\\n\\end{cases}\n\\] here \\(\\textbf{x}\\in X_n\\), \\(x_i\\) is the \\(i^{th}\\) entry of \\(\\textbf{x}\\), and \\(\\theta\\) is a pre-determined constant called the threshold.\n\n\n\n\nMcCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf:"
   }
 ]
