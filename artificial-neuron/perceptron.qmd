@@ -1,0 +1,18 @@
+# The Perceptron
+The perceptron is another binary classifier that does away with some of the limitiations of the MP-neuron (@sec-mcculloch_pitts_neuron). 
+
+## Definition
+
+## Differences between the perceptron and the MP-neuron
+
+## Perceptron learning algorithm
+
+## Linearly serperable boolean functions
+
+## Proof of convergence
+
+## Network of perceptrons
+
+## Limitations
+
+

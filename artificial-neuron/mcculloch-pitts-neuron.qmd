@@ -1,0 +1,64 @@
+# The McCulloch-Pitts Neuron {#sec-mcculloch_pitts_neuron}
+
+The McCulloch-Pitts (MP) neuron is a formal model attempting to imitate select behaviour of the biological neuron: excitatory and inhibitory inputs, thresholding behaviour, a single excitatory state, ... [@mculloch-pitts-1943]. It is a binary classifier.
+
+## A basic mathematical formulation
+Let $f_{\theta, N}$ be a boolean function (@sec-boolean_function) where $\theta$ is a non-negative real constant called the **threshold** and $N$ is the set of indices (of the input binary tuple) corresponding to **inhibitory inputs**. We define $f_{\theta, N}$ in the following manner,
+$$
+f_{\theta, N}(\textbf{x}) = 
+\begin{cases}
+1 \text{ if } \sum\limits_{i = 1}^n x_i \geq \theta \text { and } x_i = 0 \;\forall\; i \in N \\
+0 \text{ if } \sum\limits_{i = 1}^n x_i < \theta \text{ or } \;\exists\; i \in N \text{ s.t } x_i = 1
+\end{cases}
+$$
+
+here $\textbf{x}$ is an input boolean tuple and $x_i$ is the $i^{th}$ element of $\textbf{x}$.
+
+Below is an implementation of the McCulloch pitts neuron fitting the OR Function.
+```{python}
+import torch
+
+def McCullochPittsNeuron(x, N, theta):
+    val = torch.sum(x)
+    if (val >= theta):
+        if (torch.sum(torch.index_select(x, 0, N)) == 0):
+            return 1
+    return 0
+
+# checking OR Function for (1, 1) input tuple.
+McCullochPittsNeuron(torch.tensor((1, 1)), torch.tensor((1), dtype=torch.int32), 1)
+```
+
+## Fitting some boolean functions
+The MP Neuron can be thought of as a boolean function approximator. An MP Neuron can match the truth table of a boolean function (at least partially) by adjusting the values of $\theta$ and $N$. The process of finding the values of $\theta$ and $N$ that result in the best match is called **fitting**. 
+
+#### Fitting OR
+
+```{python}
+
+"""
+OR truthtable:  
+0, 0 - 0
+0, 1 - 1
+1, 0 - 1
+1, 1 - 1
+"""
+
+
+
+```
+
+#### Fitting AND
+#### Fitting NOR
+#### Fitting NOT
+
+### A systematic method to fit
+A systematic method to fit some boolean function follows. 
+
+## Geometric interpretation
+
+
+## Limitations
+1. In many practical applications, relevant information will often be non-boolean.
+2. Not all inputs have the same importance in making a decision
+3. Cannot fit functions which are not linearly seperable.

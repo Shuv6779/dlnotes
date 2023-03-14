@@ -1,1 +1,3 @@
 ## What is this? {.unnumbered}
+
+Some notes made from the NPTEL course on deep learning [@CS7015].

@@ -4,20 +4,97 @@
     "href": "index.html#what-is-this",
     "title": "Deep Learning Notes",
     "section": "What is this?",
-    "text": "What is this?"
+    "text": "What is this?\nSome notes made from the NPTEL course on deep learning (CS7015 2018).\n\n\n\n\nCS7015. 2018. https://nptel.ac.in/courses/106106184."
   },
   {
-    "objectID": "mcculloch-pitts-neuron.html#a-simple-definition-of-the-model",
-    "href": "mcculloch-pitts-neuron.html#a-simple-definition-of-the-model",
+    "objectID": "artificial-neuron/mcculloch-pitts-neuron.html#a-basic-mathematical-formulation",
+    "href": "artificial-neuron/mcculloch-pitts-neuron.html#a-basic-mathematical-formulation",
     "title": "1  The McCulloch-Pitts Neuron",
-    "section": "1.1 A simple definition of the model",
-    "text": "1.1 A simple definition of the model\nLet \\(X_n\\) be the set of all possible binary tuples of length \\(n\\). Then the McCulloch-Pitts Neuron can be thought of as a function \\(f:X_n\\to\\{0, 1\\}\\) defined by, \\[\nf(\\textbf{x})=\n\\begin{cases}\n1 & \\text{ if }\\sum\\limits_{i=1}^n x_i \\geq \\theta \\\\\n0 & \\text{ if }\\sum\\limits_{i=0}^n x_i < \\theta \\\\\n\\end{cases}\n\\] here \\(\\textbf{x}\\in X_n\\), \\(x_i\\) is the \\(i^{th}\\) entry of \\(\\textbf{x}\\), and \\(\\theta\\) is a pre-determined constant called the threshold.\n\n\n\n\nMcCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf:"
+    "section": "1.1 A basic mathematical formulation",
+    "text": "1.1 A basic mathematical formulation\nLet \\(f_{\\theta, N}\\) be a boolean function (Section 3.1) where \\(\\theta\\) is a non-negative real constant called the threshold and \\(N\\) is the set of indices (of the input binary tuple) corresponding to inhibitory inputs. We define \\(f_{\\theta, N}\\) in the following manner, \\[\nf_{\\theta, N}(\\textbf{x}) =\n\\begin{cases}\n1 \\text{ if } \\sum\\limits_{i = 1}^n x_i \\geq \\theta \\text { and } x_i = 0 \\;\\forall\\; i \\in N \\\\\n0 \\text{ if } \\sum\\limits_{i = 1}^n x_i < \\theta \\text{ or } \\;\\exists\\; i \\in N \\text{ s.t } x_i = 1\n\\end{cases}\n\\]\nhere \\(\\textbf{x}\\) is an input boolean tuple and \\(x_i\\) is the \\(i^{th}\\) element of \\(\\textbf{x}\\).\nBelow is an implementation of the McCulloch pitts neuron fitting the OR Function.\n\nimport torch\n\ndef McCullochPittsNeuron(x, N, theta):\n    val = torch.sum(x)\n    if (val >= theta):\n        if (torch.sum(torch.index_select(x, 0, N)) == 0):\n            return 1\n    return 0\n\n# checking OR Function for (1, 1) input tuple.\nMcCullochPittsNeuron(torch.tensor((1, 1)), torch.tensor((1), dtype=torch.int32), 1)\n\n0"
+  },
+  {
+    "objectID": "artificial-neuron/mcculloch-pitts-neuron.html#fitting-some-boolean-functions",
+    "href": "artificial-neuron/mcculloch-pitts-neuron.html#fitting-some-boolean-functions",
+    "title": "1  The McCulloch-Pitts Neuron",
+    "section": "1.2 Fitting some boolean functions",
+    "text": "1.2 Fitting some boolean functions\nThe MP Neuron can be thought of as a boolean function approximator. An MP Neuron can match the truth table of a boolean function (at least partially) by adjusting the values of \\(\\theta\\) and \\(N\\). The process of finding the values of \\(\\theta\\) and \\(N\\) that result in the best match is called fitting.\n\n1.2.0.1 Fitting OR\n\n\"\"\"\nOR truthtable:  \n0, 0 - 0\n0, 1 - 1\n1, 0 - 1\n1, 1 - 1\n\"\"\"\n\n'\\nOR truthtable:  \\n0, 0 - 0\\n0, 1 - 1\\n1, 0 - 1\\n1, 1 - 1\\n'\n\n\n\n\n1.2.0.2 Fitting AND\n\n\n1.2.0.3 Fitting NOR\n\n\n1.2.0.4 Fitting NOT\n\n\n1.2.1 A systematic method to fit\nA systematic method to fit some boolean function follows."
+  },
+  {
+    "objectID": "artificial-neuron/mcculloch-pitts-neuron.html#geometric-interpretation",
+    "href": "artificial-neuron/mcculloch-pitts-neuron.html#geometric-interpretation",
+    "title": "1  The McCulloch-Pitts Neuron",
+    "section": "1.3 Geometric interpretation",
+    "text": "1.3 Geometric interpretation"
+  },
+  {
+    "objectID": "artificial-neuron/mcculloch-pitts-neuron.html#limitations",
+    "href": "artificial-neuron/mcculloch-pitts-neuron.html#limitations",
+    "title": "1  The McCulloch-Pitts Neuron",
+    "section": "1.4 Limitations",
+    "text": "1.4 Limitations\n\nIn many practical applications, relevant information will often be non-boolean.\nNot all inputs have the same importance in making a decision\nCannot fit functions which are not linearly seperable.\n\n\n\n\n\nMcCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf."
+  },
+  {
+    "objectID": "artificial-neuron/perceptron.html#definition",
+    "href": "artificial-neuron/perceptron.html#definition",
+    "title": "2  The Perceptron",
+    "section": "2.1 Definition",
+    "text": "2.1 Definition"
+  },
+  {
+    "objectID": "artificial-neuron/perceptron.html#differences-between-the-perceptron-and-the-mp-neuron",
+    "href": "artificial-neuron/perceptron.html#differences-between-the-perceptron-and-the-mp-neuron",
+    "title": "2  The Perceptron",
+    "section": "2.2 Differences between the perceptron and the MP-neuron",
+    "text": "2.2 Differences between the perceptron and the MP-neuron"
+  },
+  {
+    "objectID": "artificial-neuron/perceptron.html#perceptron-learning-algorithm",
+    "href": "artificial-neuron/perceptron.html#perceptron-learning-algorithm",
+    "title": "2  The Perceptron",
+    "section": "2.3 Perceptron learning algorithm",
+    "text": "2.3 Perceptron learning algorithm"
+  },
+  {
+    "objectID": "artificial-neuron/perceptron.html#linearly-serperable-boolean-functions",
+    "href": "artificial-neuron/perceptron.html#linearly-serperable-boolean-functions",
+    "title": "2  The Perceptron",
+    "section": "2.4 Linearly serperable boolean functions",
+    "text": "2.4 Linearly serperable boolean functions"
+  },
+  {
+    "objectID": "artificial-neuron/perceptron.html#proof-of-convergence",
+    "href": "artificial-neuron/perceptron.html#proof-of-convergence",
+    "title": "2  The Perceptron",
+    "section": "2.5 Proof of convergence",
+    "text": "2.5 Proof of convergence"
+  },
+  {
+    "objectID": "artificial-neuron/perceptron.html#network-of-perceptrons",
+    "href": "artificial-neuron/perceptron.html#network-of-perceptrons",
+    "title": "2  The Perceptron",
+    "section": "2.6 Network of perceptrons",
+    "text": "2.6 Network of perceptrons"
+  },
+  {
+    "objectID": "artificial-neuron/perceptron.html#limitations",
+    "href": "artificial-neuron/perceptron.html#limitations",
+    "title": "2  The Perceptron",
+    "section": "2.7 Limitations",
+    "text": "2.7 Limitations"
+  },
+  {
+    "objectID": "mathematics/boolean-logic.html#sec-boolean_function",
+    "href": "mathematics/boolean-logic.html#sec-boolean_function",
+    "title": "3  Boolean Logic",
+    "section": "3.1 Boolean function",
+    "text": "3.1 Boolean function\nLet \\(X\\) be the set of all possible boolean \\(n\\)-tuples. Then, a function \\(f:X\\to \\{0, 1\\}\\) is called a boolean function with \\(n\\) inputs."
   },
   {
     "objectID": "references.html",
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "McCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf:"
+    "text": "CS7015. 2018. https://nptel.ac.in/courses/106106184.\n\n\nMcCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf."
   }
 ]

@@ -13,9 +13,13 @@ book:
 
   chapters:      
   - index.qmd
-  - part: artificial-neuron.qmd
+  - part: artificial-neuron/artificial-neuron.qmd
     chapters:
-      - mcculloch-pitts-neuron.qmd
+      - artificial-neuron/mcculloch-pitts-neuron.qmd
+      - artificial-neuron/perceptron.qmd
+  - part: mathematics/mathematics.qmd
+    chapters:
+      - mathematics/boolean-logic.qmd
   - references.qmd
 
 
