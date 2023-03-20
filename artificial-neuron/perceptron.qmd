@@ -1,18 +1,56 @@
 # The Perceptron
-The perceptron is another binary classifier that does away with some of the limitiations of the MP-neuron (@sec-mcculloch_pitts_neuron). 
+The perceptron is a parametrized binary classification model that accepts a real-valued vector as input. It generates output by thresholding a linear function of the input. It does away with some of the limitations of its predecessor, the MP Neuron.
 
-## Definition
+## Precise mathematical formulation
+The perceptron is a function $f_{\theta, \textbf{w}}:\mathbb{R}^n\to\{0, 1\}$ where $\theta > 0$ is a real constant and $\textbf{w} \in \mathbb{R}^n$ is a real-valued vector, called the weights of the model. 
+$$
+f_{\theta, \textbf{w}}(\textbf{x}) = 
+\begin{cases}
+    1 \text{ if } \textbf{w}\cdot\textbf{x} \geq \theta \\
+    0 \text{ if } \textbf{w}\cdot\textbf{x} < \theta
+\end{cases}
+$$
+
+For the sake of analysis we ofter use the equivalent definition,
+
+$$
+f_{\theta, \textbf{w}'}(\textbf{x}') = 
+\begin{cases}
+    1 \text { if } \textbf{w}'\cdot\textbf{x}' \geq 0 \\
+    0 \text { if } \textbf{w}'\cdot\textbf{x}' < 0
+\end{cases}
+$$
+
+here $\textbf{w}' \in\mathbb{R}^{n+1}$ is nothing but a concatenation of $\textbf{w}$ and singleton $-\theta$. Similarly, $\textbf{x}' \in\mathbb{R}^{n+1}$ is a concatination of $\textbf{x}$ and singleton $1$. Both $-\theta$ and $1$ are in corresponding positions.
+
+### Geometrical interpretation
+The seperating boundary of the perceptron is a general hyperplane in $\mathbb{R}^n$ for a input vector of $n$-dimensions. Note that hyperplane does not have to be origin centered. The $\theta$ term in fact gives the perpendicular distance of the origin with the hyperplane. The MP Neuron was always parallel to the hyperplane given by the equation $\textbf{x}'\cdot I = 0$.
 
 ## Differences between the perceptron and the MP-neuron
+1. The perceptron can accept real-valued inputs whereas the MP neuron cannot.
+2. The perceptron can assign an importance to each input. Geometrically, this can be interpreted by the fact the perceptron has an arbitrary hyperplane as its seperating boundary instead of being restricted to a family of parallel hyperplanes.
 
 ## Perceptron learning algorithm
+The perceptron learning algorithm gives a way in which the parameters of the perceptron can be adjusted iteratively, to successfully seperate any linearly seperable (@sec-linearly_seperable_points) and bounded set of points (@sec-bounded_points) in a finite albeit unknown number of steps.
 
-## Linearly serperable boolean functions
+```
+Let X be a set of linearly seperable and bounded points.
+
+If there exists x in X such that 
+    y(w'x') < 0
+then
+    w' = w' + yx
+else
+    terminate
+```
 
 ## Proof of convergence
+A perceptron is said to have converged on a set of points $X$ iff $y(w'x') > 0 \;\forall\; x\in X$, in such a case we say that the perceptron has fit the underlying boolean function. We now show that the above algorithm indeed makes the perceptron converge in a finite number of steps.
+
+SHOW PROOF OF CONVERGENCE.
 
 ## Network of perceptrons
-
-## Limitations
-
-
+Even through a single-perceptron can only converge on a set of linearly seperable points, a network of perceptrons can converge on other functions too.
+ 
+## Limitations and other notes
+The only limitation of a single perceptron comes from the fact that it is unable to fit a set of points which is not linearly seperable. However, this problem is taken care of by the fact that a network of perceptrons is able to fit such a function. 

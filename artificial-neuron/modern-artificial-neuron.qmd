@@ -1,0 +1,6 @@
+# The modern artificial neuron
+Unlike the previous models the modern artificial neurons abstracts away from the previous concrete models into a general template whose parts can be swapped in-and-out on the basis of necessity. We discuss the general template as well as some specific manifestations of the archetype.
+
+informative article check: https://machinelearningknowledge.ai/artificial-neuron/
+
+

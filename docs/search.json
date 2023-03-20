@@ -11,21 +11,21 @@
     "href": "artificial-neuron/mcculloch-pitts-neuron.html#a-basic-mathematical-formulation",
     "title": "1  The McCulloch-Pitts Neuron",
     "section": "1.1 A basic mathematical formulation",
-    "text": "1.1 A basic mathematical formulation\nLet \\(f_{\\theta, N}\\) be a boolean function (Section 3.1) where \\(\\theta\\) is a non-negative real constant called the threshold and \\(N\\) is the set of indices (of the input binary tuple) corresponding to inhibitory inputs. We define \\(f_{\\theta, N}\\) in the following manner, \\[\nf_{\\theta, N}(\\textbf{x}) =\n\\begin{cases}\n1 \\text{ if } \\sum\\limits_{i = 1}^n x_i \\geq \\theta \\text { and } x_i = 0 \\;\\forall\\; i \\in N \\\\\n0 \\text{ if } \\sum\\limits_{i = 1}^n x_i < \\theta \\text{ or } \\;\\exists\\; i \\in N \\text{ s.t } x_i = 1\n\\end{cases}\n\\]\nhere \\(\\textbf{x}\\) is an input boolean tuple and \\(x_i\\) is the \\(i^{th}\\) element of \\(\\textbf{x}\\).\nBelow is an implementation of the McCulloch pitts neuron fitting the OR Function.\n\nimport torch\n\ndef McCullochPittsNeuron(x, N, theta):\n    val = torch.sum(x)\n    if (val >= theta):\n        if (torch.sum(torch.index_select(x, 0, N)) == 0):\n            return 1\n    return 0\n\n# checking OR Function for (1, 1) input tuple.\nMcCullochPittsNeuron(torch.tensor((1, 1)), torch.tensor((1), dtype=torch.int32), 1)\n\n0"
+    "text": "1.1 A basic mathematical formulation\nLet \\(f_{\\theta, N}\\) be a boolean function (Section 6.1) where \\(\\theta\\) is a non-negative real constant called the threshold and \\(N\\) is the set of indices (of the input binary tuple) corresponding to inhibitory inputs. We define \\(f_{\\theta, N}\\) in the following manner, \\[\nf_{\\theta, N}(\\textbf{x}) =\n\\begin{cases}\n1 \\text{ if } \\sum\\limits_{i = 1}^n x_i \\geq \\theta \\text { and } x_i = 0 \\;\\forall\\; i \\in N \\\\\n0 \\text{ if } \\sum\\limits_{i = 1}^n x_i < \\theta \\text{ or } \\;\\exists\\; i \\in N \\text{ s.t } x_i = 1\n\\end{cases}\n\\]\nhere \\(\\textbf{x}\\) is an input boolean tuple and \\(x_i\\) is the \\(i^{th}\\) element of \\(\\textbf{x}\\).\nBelow is an implementation of the McCulloch pitts neuron.\n\nimport torch\n\ndef McCullochPittsNeuron(x, N, theta):\n    val = torch.sum(x)\n    if (val >= theta):\n        if (torch.sum(torch.index_select(x, 0, N)) == 0):\n            return 1\n    return 0"
   },
   {
     "objectID": "artificial-neuron/mcculloch-pitts-neuron.html#fitting-some-boolean-functions",
     "href": "artificial-neuron/mcculloch-pitts-neuron.html#fitting-some-boolean-functions",
     "title": "1  The McCulloch-Pitts Neuron",
     "section": "1.2 Fitting some boolean functions",
-    "text": "1.2 Fitting some boolean functions\nThe MP Neuron can be thought of as a boolean function approximator. An MP Neuron can match the truth table of a boolean function (at least partially) by adjusting the values of \\(\\theta\\) and \\(N\\). The process of finding the values of \\(\\theta\\) and \\(N\\) that result in the best match is called fitting.\n\n1.2.0.1 Fitting OR\n\n\"\"\"\nOR truthtable:  \n0, 0 - 0\n0, 1 - 1\n1, 0 - 1\n1, 1 - 1\n\"\"\"\n\n'\\nOR truthtable:  \\n0, 0 - 0\\n0, 1 - 1\\n1, 0 - 1\\n1, 1 - 1\\n'\n\n\n\n\n1.2.0.2 Fitting AND\n\n\n1.2.0.3 Fitting NOR\n\n\n1.2.0.4 Fitting NOT\n\n\n1.2.1 A systematic method to fit\nA systematic method to fit some boolean function follows."
+    "text": "1.2 Fitting some boolean functions\nThe MP Neuron can be thought of as a boolean function approximator. An MP Neuron can match the truth table of a boolean function (at least partially) by adjusting the values of \\(\\theta\\) and \\(N\\). The process of finding the values of \\(\\theta\\) and \\(N\\) that result in the best match is called fitting.\n\nimport itertools\nfrom matplotlib import pyplot as plt\n\ndef MPFunction(inp, N, theta):\n    y = []\n    for x in inp:\n        y.append(McCullochPittsNeuron(x, torch.tensor(N, dtype=torch.int32), theta))\n    return y\n\ndef plot_MPFunction(theta, N = ()):\n    inputs = torch.tensor(list(itertools.product((0, 1), repeat = 2)), dtype = torch.int32)\n    outputs = torch.tensor(MPFunction(inputs, N, theta), dtype = torch.int32)\n    off_values = inputs[outputs == 0]\n    on_values = inputs[outputs == 1]\n\n    plt.scatter(off_values[:, 0], off_values[:, 1])\n    plt.scatter(on_values[:, 0], on_values[:, 1])\n\nFor OR,\n\n    plot_MPFunction(1) # theta = 1 for OR\n    plt.show()\n\n\n\n\nFor AND,\n\n    plot_MPFunction(2) # theta = 2 for AND\n    plt.show()\n\n\n\n\nFor NAND,\n\n    plot_MPFunction(0, (0, 1))\n    plt.show()\n\n\n\n\nThere are many boolean functions which the MP Neuron cannot fit.\n\n1.2.1 A systematic method to fit\nYou must also prove that this method is definately the most effecient way to do things."
   },
   {
     "objectID": "artificial-neuron/mcculloch-pitts-neuron.html#geometric-interpretation",
     "href": "artificial-neuron/mcculloch-pitts-neuron.html#geometric-interpretation",
     "title": "1  The McCulloch-Pitts Neuron",
     "section": "1.3 Geometric interpretation",
-    "text": "1.3 Geometric interpretation"
+    "text": "1.3 Geometric interpretation\nThe geometrical interpretation of the MP Neuron can be found by looking at it’s decision boundary. The decision boundary in the case where \\(N=\\phi\\) is given by the equation, \\[\n    \\sum\\limits_{i = 1}^n x_i = \\theta\n\\]\nthis is nothing but a straight line in the cartesian plane when \\(n = 2\\). Below is a plot of thE decision boundary when trying to fit the AND and OR function.\n\nplot_MPFunction(2)\nline_xs = torch.arange(0, 200)/100\nline_ys = 2 - line_xs\nplt.plot(line_xs, line_ys)\nplt.show()\n\nplot_MPFunction(1)\nline_xs = torch.arange(0, 100)/100\nline_ys = 1 - line_xs\nplt.plot(line_xs, line_ys)\nplt.show()\n\n\n\n\n\n\n\nBy adjusting the value of \\(\\theta\\) we can only change the perpendicular distance between the linear decision boundary and the origin. However, if \\(N\\neq\\phi\\) then the decision boundary becomes non-linear."
   },
   {
     "objectID": "artificial-neuron/mcculloch-pitts-neuron.html#limitations",
@@ -35,60 +35,95 @@
     "text": "1.4 Limitations\n\nIn many practical applications, relevant information will often be non-boolean.\nNot all inputs have the same importance in making a decision\nCannot fit functions which are not linearly seperable.\n\n\n\n\n\nMcCulloch, and Pitts. 1943. https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf."
   },
   {
-    "objectID": "artificial-neuron/perceptron.html#definition",
-    "href": "artificial-neuron/perceptron.html#definition",
+    "objectID": "artificial-neuron/perceptron.html#precise-mathematical-formulation",
+    "href": "artificial-neuron/perceptron.html#precise-mathematical-formulation",
     "title": "2  The Perceptron",
-    "section": "2.1 Definition",
-    "text": "2.1 Definition"
+    "section": "2.1 Precise mathematical formulation",
+    "text": "2.1 Precise mathematical formulation\nThe perceptron is a function \\(f_{\\theta, \\textbf{w}}:\\mathbb{R}^n\\to\\{0, 1\\}\\) where \\(\\theta > 0\\) is a real constant and \\(\\textbf{w} \\in \\mathbb{R}^n\\) is a real-valued vector, called the weights of the model. \\[\nf_{\\theta, \\textbf{w}}(\\textbf{x}) =\n\\begin{cases}\n    1 \\text{ if } \\textbf{w}\\cdot\\textbf{x} \\geq \\theta \\\\\n    0 \\text{ if } \\textbf{w}\\cdot\\textbf{x} < \\theta\n\\end{cases}\n\\]\nFor the sake of analysis we ofter use the equivalent definition,\n\\[\nf_{\\theta, \\textbf{w}'}(\\textbf{x}') =\n\\begin{cases}\n    1 \\text { if } \\textbf{w}'\\cdot\\textbf{x}' \\geq 0 \\\\\n    0 \\text { if } \\textbf{w}'\\cdot\\textbf{x}' < 0\n\\end{cases}\n\\]\nhere \\(\\textbf{w}' \\in\\mathbb{R}^{n+1}\\) is nothing but a concatenation of \\(\\textbf{w}\\) and singleton \\(-\\theta\\). Similarly, \\(\\textbf{x}' \\in\\mathbb{R}^{n+1}\\) is a concatination of \\(\\textbf{x}\\) and singleton \\(1\\). Both \\(-\\theta\\) and \\(1\\) are in corresponding positions.\n\n2.1.1 Geometrical interpretation\nThe seperating boundary of the perceptron is a general hyperplane in \\(\\mathbb{R}^n\\) for a input vector of \\(n\\)-dimensions. Note that hyperplane does not have to be origin centered. The \\(\\theta\\) term in fact gives the perpendicular distance of the origin with the hyperplane. The MP Neuron was always parallel to the hyperplane given by the equation \\(\\textbf{x}'\\cdot I = 0\\)."
   },
   {
     "objectID": "artificial-neuron/perceptron.html#differences-between-the-perceptron-and-the-mp-neuron",
     "href": "artificial-neuron/perceptron.html#differences-between-the-perceptron-and-the-mp-neuron",
     "title": "2  The Perceptron",
     "section": "2.2 Differences between the perceptron and the MP-neuron",
-    "text": "2.2 Differences between the perceptron and the MP-neuron"
+    "text": "2.2 Differences between the perceptron and the MP-neuron\n\nThe perceptron can accept real-valued inputs whereas the MP neuron cannot.\nThe perceptron can assign an importance to each input. Geometrically, this can be interpreted by the fact the perceptron has an arbitrary hyperplane as its seperating boundary instead of being restricted to a family of parallel hyperplanes."
   },
   {
     "objectID": "artificial-neuron/perceptron.html#perceptron-learning-algorithm",
     "href": "artificial-neuron/perceptron.html#perceptron-learning-algorithm",
     "title": "2  The Perceptron",
     "section": "2.3 Perceptron learning algorithm",
-    "text": "2.3 Perceptron learning algorithm"
-  },
-  {
-    "objectID": "artificial-neuron/perceptron.html#linearly-serperable-boolean-functions",
-    "href": "artificial-neuron/perceptron.html#linearly-serperable-boolean-functions",
-    "title": "2  The Perceptron",
-    "section": "2.4 Linearly serperable boolean functions",
-    "text": "2.4 Linearly serperable boolean functions"
+    "text": "2.3 Perceptron learning algorithm\nThe perceptron learning algorithm gives a way in which the parameters of the perceptron can be adjusted iteratively, to successfully seperate any linearly seperable (Section 7.1) and bounded set of points (Section 7.2) in a finite albeit unknown number of steps.\nLet X be a set of linearly seperable and bounded points.\n\nIf there exists x in X such that \n    y(w'x') < 0\nthen\n    w' = w' + yx\nelse\n    terminate"
   },
   {
     "objectID": "artificial-neuron/perceptron.html#proof-of-convergence",
     "href": "artificial-neuron/perceptron.html#proof-of-convergence",
     "title": "2  The Perceptron",
-    "section": "2.5 Proof of convergence",
-    "text": "2.5 Proof of convergence"
+    "section": "2.4 Proof of convergence",
+    "text": "2.4 Proof of convergence\nA perceptron is said to have converged on a set of points \\(X\\) iff \\(y(w'x') > 0 \\;\\forall\\; x\\in X\\), in such a case we say that the perceptron has fit the underlying boolean function. We now show that the above algorithm indeed makes the perceptron converge in a finite number of steps.\nSHOW PROOF OF CONVERGENCE."
   },
   {
     "objectID": "artificial-neuron/perceptron.html#network-of-perceptrons",
     "href": "artificial-neuron/perceptron.html#network-of-perceptrons",
     "title": "2  The Perceptron",
-    "section": "2.6 Network of perceptrons",
-    "text": "2.6 Network of perceptrons"
+    "section": "2.5 Network of perceptrons",
+    "text": "2.5 Network of perceptrons\nEven through a single-perceptron can only converge on a set of linearly seperable points, a network of perceptrons can converge on other functions too."
   },
   {
-    "objectID": "artificial-neuron/perceptron.html#limitations",
-    "href": "artificial-neuron/perceptron.html#limitations",
+    "objectID": "artificial-neuron/perceptron.html#limitations-and-other-notes",
+    "href": "artificial-neuron/perceptron.html#limitations-and-other-notes",
     "title": "2  The Perceptron",
-    "section": "2.7 Limitations",
-    "text": "2.7 Limitations"
+    "section": "2.6 Limitations and other notes",
+    "text": "2.6 Limitations and other notes\nThe only limitation of a single perceptron comes from the fact that it is unable to fit a set of points which is not linearly seperable. However, this problem is taken care of by the fact that a network of perceptrons is able to fit such a function."
+  },
+  {
+    "objectID": "artificial-neuron/sigmoid-neuron.html#motivation",
+    "href": "artificial-neuron/sigmoid-neuron.html#motivation",
+    "title": "3  The sigmoid neuron",
+    "section": "3.1 Motivation",
+    "text": "3.1 Motivation\nThe sigmoid neuron addresses some limitations of the perceptron: 1. The perceptron could only fit binary functions 2. The perceptron is not a fully differentiable model. 3. Consider two inputs to a single-input perceptron: \\(\\theta+d\\theta\\) and \\(\\theta-d\\theta\\). Due to the nature of the thresholding logic, the perceptron will output \\(1\\) on the first and \\(0\\) on the second if regardless of how small \\(d\\theta\\) is."
+  },
+  {
+    "objectID": "artificial-neuron/sigmoid-neuron.html#mathematical-formulation",
+    "href": "artificial-neuron/sigmoid-neuron.html#mathematical-formulation",
+    "title": "3  The sigmoid neuron",
+    "section": "3.2 Mathematical formulation",
+    "text": "3.2 Mathematical formulation\nThe sigmoid neuron is a real-valued function \\(f_{k, \\theta, \\textbf{w}}:\\mathbb{R}^n\\to\\mathbb{R}\\) where \\(k\\) and \\(\\theta\\) are positive real numbers and \\(\\textbf{w}\\) is a real valued vector such that \\[\nf_{k, \\theta, \\textbf{w}}(\\textbf{x}) =  g_k(\\theta + \\textbf{w}\\cdot\\textbf{x})\ng_k(\\textbf{y}) = \\frac{1}{1+e^{-ky}}\n\\]\n\\(g_k(\\textbf{y})\\) is a logistic function with a maximum value of \\(1\\) and steepness of \\(k\\). However, \\(g_k\\) is not just restricted to the logistic function, in fact it can take on any function belonging to the sigmoid family of functions. Another virtue of the sigmoid neuron is the fact that it is differentiable for all input values.\n\n3.2.1 Interpretation as probability\nSince the sigmoid neuron has a range of \\((0, 1)\\) it can be interpreted as a probability/liklehood/certainty of a particular event. This interpretation has many applications."
+  },
+  {
+    "objectID": "artificial-neuron/modern-artificial-neuron.html",
+    "href": "artificial-neuron/modern-artificial-neuron.html",
+    "title": "4  The modern artificial neuron",
+    "section": "",
+    "text": "Unlike the previous models the modern artificial neurons abstracts away from the previous concrete models into a general template whose parts can be swapped in-and-out on the basis of necessity. We discuss the general template as well as some specific manifestations of the archetype.\ninformative article check: https://machinelearningknowledge.ai/artificial-neuron/"
+  },
+  {
+    "objectID": "machine-learning/machine-learning-setup.html#a-discussion-on-model-convergence",
+    "href": "machine-learning/machine-learning-setup.html#a-discussion-on-model-convergence",
+    "title": "5  The machine learning setup",
+    "section": "5.1 A Discussion on model convergence",
+    "text": "5.1 A Discussion on model convergence\nThe precise definition of convergence of a model varies depending on the context. However, in general we say that a model has converged if we have roughly reached a set of parameters at which the loss function has a minima. It is not necessary that the minimum loss is 0, it is a luxury."
   },
   {
     "objectID": "mathematics/boolean-logic.html#sec-boolean_function",
     "href": "mathematics/boolean-logic.html#sec-boolean_function",
-    "title": "3  Boolean Logic",
-    "section": "3.1 Boolean function",
-    "text": "3.1 Boolean function\nLet \\(X\\) be the set of all possible boolean \\(n\\)-tuples. Then, a function \\(f:X\\to \\{0, 1\\}\\) is called a boolean function with \\(n\\) inputs."
+    "title": "6  Boolean Logic",
+    "section": "6.1 Boolean function",
+    "text": "6.1 Boolean function\nLet \\(X\\) be the set of all possible boolean \\(n\\)-tuples. Then, a function \\(f:X\\to \\{0, 1\\}\\) is called a boolean function with \\(n\\) inputs."
+  },
+  {
+    "objectID": "mathematics/prerequisite-topology.html#sec-linearly_seperable_points",
+    "href": "mathematics/prerequisite-topology.html#sec-linearly_seperable_points",
+    "title": "7  Prerequisite Topology",
+    "section": "7.1 Linearly serperable set of points",
+    "text": "7.1 Linearly serperable set of points\nthere is something here."
+  },
+  {
+    "objectID": "mathematics/prerequisite-topology.html#sec-bounded_points",
+    "href": "mathematics/prerequisite-topology.html#sec-bounded_points",
+    "title": "7  Prerequisite Topology",
+    "section": "7.2 Bounded points",
+    "text": "7.2 Bounded points\nthere is somethign here too."
   },
   {
     "objectID": "references.html",

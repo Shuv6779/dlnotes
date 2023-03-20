@@ -17,9 +17,18 @@ book:
     chapters:
       - artificial-neuron/mcculloch-pitts-neuron.qmd
       - artificial-neuron/perceptron.qmd
+      - artificial-neuron/sigmoid-neuron.qmd
+      - artificial-neuron/modern-artificial-neuron.qmd
+  - part: machine-learning/machine-learning.qmd
+    chapters:
+      - machine-learning/machine-learning-setup.qmd
   - part: mathematics/mathematics.qmd
     chapters:
       - mathematics/boolean-logic.qmd
+      - mathematics/prerequisite-topology.qmd
+  - part: pytorch-experiments/pytorch-experiments.qmd
+    chapters:
+      - pytorch-experiments/indexing.qmd
   - references.qmd
 
 

@@ -1,0 +1,7 @@
+# Prerequisite Topology
+
+## Linearly serperable set of points {#sec-linearly_seperable_points}
+there is something here.
+
+## Bounded points {#sec-bounded_points}
+there is somethign here too.

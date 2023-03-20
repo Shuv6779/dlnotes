@@ -182,11 +182,21 @@ div.csl-indent {
   <a href="../artificial-neuron/perceptron.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Perceptron</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../artificial-neuron/sigmoid-neuron.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The sigmoid neuron</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../artificial-neuron/modern-artificial-neuron.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The modern artificial neuron</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../mathematics/mathematics.html" class="sidebar-item-text sidebar-link">mathematics.html</a>
+            <a href="../machine-learning/machine-learning.html" class="sidebar-item-text sidebar-link">Machine Learning</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -194,7 +204,42 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../mathematics/boolean-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Boolean Logic</span></a>
+  <a href="../machine-learning/machine-learning-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The machine learning setup</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../mathematics/mathematics.html" class="sidebar-item-text sidebar-link">Mathematics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mathematics/boolean-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Boolean Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mathematics/prerequisite-topology.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Prerequisite Topology</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../pytorch-experiments/pytorch-experiments.html" class="sidebar-item-text sidebar-link">Pytorch Experiments</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pytorch-experiments/indexing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">indexing.html</span></a>
   </div>
 </li>
       </ul>
@@ -246,7 +291,7 @@ div.csl-indent {
 <p>The McCulloch-Pitts (MP) neuron is a formal model attempting to imitate select behaviour of the biological neuron: excitatory and inhibitory inputs, thresholding behaviour, a single excitatory state, … <span class="citation" data-cites="mculloch-pitts-1943">(<a href="../references.html#ref-mculloch-pitts-1943" role="doc-biblioref">McCulloch and Pitts 1943</a>)</span>. It is a binary classifier.</p>
 <section id="a-basic-mathematical-formulation" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="a-basic-mathematical-formulation"><span class="header-section-number">1.1</span> A basic mathematical formulation</h2>
-<p>Let <span class="math inline">\(f_{\theta, N}\)</span> be a boolean function (<a href="../mathematics/boolean-logic.html#sec-boolean_function"><span>Section&nbsp;3.1</span></a>) where <span class="math inline">\(\theta\)</span> is a non-negative real constant called the <strong>threshold</strong> and <span class="math inline">\(N\)</span> is the set of indices (of the input binary tuple) corresponding to <strong>inhibitory inputs</strong>. We define <span class="math inline">\(f_{\theta, N}\)</span> in the following manner, <span class="math display">\[
+<p>Let <span class="math inline">\(f_{\theta, N}\)</span> be a boolean function (<a href="../mathematics/boolean-logic.html#sec-boolean_function"><span>Section&nbsp;6.1</span></a>) where <span class="math inline">\(\theta\)</span> is a non-negative real constant called the <strong>threshold</strong> and <span class="math inline">\(N\)</span> is the set of indices (of the input binary tuple) corresponding to <strong>inhibitory inputs</strong>. We define <span class="math inline">\(f_{\theta, N}\)</span> in the following manner, <span class="math display">\[
 f_{\theta, N}(\textbf{x}) =
 \begin{cases}
 1 \text{ if } \sum\limits_{i = 1}^n x_i \geq \theta \text { and } x_i = 0 \;\forall\; i \in N \\
@@ -254,7 +299,7 @@ f_{\theta, N}(\textbf{x}) =
 \end{cases}
 \]</span></p>
 <p>here <span class="math inline">\(\textbf{x}\)</span> is an input boolean tuple and <span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i^{th}\)</span> element of <span class="math inline">\(\textbf{x}\)</span>.</p>
-<p>Below is an implementation of the McCulloch pitts neuron fitting the OR Function.</p>
+<p>Below is an implementation of the McCulloch pitts neuron.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -263,49 +308,87 @@ f_{\theta, N}(\textbf{x}) =
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (val <span class="op">&gt;=</span> theta):</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (torch.<span class="bu">sum</span>(torch.index_select(x, <span class="dv">0</span>, N)) <span class="op">==</span> <span class="dv">0</span>):</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># checking OR Function for (1, 1) input tuple.</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>McCullochPittsNeuron(torch.tensor((<span class="dv">1</span>, <span class="dv">1</span>)), torch.tensor((<span class="dv">1</span>), dtype<span class="op">=</span>torch.int32), <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>0</code></pre>
-</div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fitting-some-boolean-functions" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="fitting-some-boolean-functions"><span class="header-section-number">1.2</span> Fitting some boolean functions</h2>
 <p>The MP Neuron can be thought of as a boolean function approximator. An MP Neuron can match the truth table of a boolean function (at least partially) by adjusting the values of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(N\)</span>. The process of finding the values of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(N\)</span> that result in the best match is called <strong>fitting</strong>.</p>
-<section id="fitting-or" class="level4" data-number="1.2.0.1">
-<h4 data-number="1.2.0.1" class="anchored" data-anchor-id="fitting-or"><span class="header-section-number">1.2.0.1</span> Fitting OR</h4>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">OR truthtable:  </span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">0, 0 - 0</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">0, 1 - 1</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">1, 0 - 1</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">1, 1 - 1</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>'\nOR truthtable:  \n0, 0 - 0\n0, 1 - 1\n1, 0 - 1\n1, 1 - 1\n'</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> MPFunction(inp, N, theta):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> []</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> inp:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        y.append(McCullochPittsNeuron(x, torch.tensor(N, dtype<span class="op">=</span>torch.int32), theta))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_MPFunction(theta, N <span class="op">=</span> ()):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    inputs <span class="op">=</span> torch.tensor(<span class="bu">list</span>(itertools.product((<span class="dv">0</span>, <span class="dv">1</span>), repeat <span class="op">=</span> <span class="dv">2</span>)), dtype <span class="op">=</span> torch.int32)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    outputs <span class="op">=</span> torch.tensor(MPFunction(inputs, N, theta), dtype <span class="op">=</span> torch.int32)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    off_values <span class="op">=</span> inputs[outputs <span class="op">==</span> <span class="dv">0</span>]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    on_values <span class="op">=</span> inputs[outputs <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    plt.scatter(off_values[:, <span class="dv">0</span>], off_values[:, <span class="dv">1</span>])</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    plt.scatter(on_values[:, <span class="dv">0</span>], on_values[:, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For OR,</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    plot_MPFunction(<span class="dv">1</span>) <span class="co"># theta = 1 for OR</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mcculloch-pitts-neuron_files/figure-html/cell-4-output-1.png" width="571" height="411"></p>
 </div>
 </div>
-</section>
-<section id="fitting-and" class="level4" data-number="1.2.0.2">
-<h4 data-number="1.2.0.2" class="anchored" data-anchor-id="fitting-and"><span class="header-section-number">1.2.0.2</span> Fitting AND</h4>
-</section>
-<section id="fitting-nor" class="level4" data-number="1.2.0.3">
-<h4 data-number="1.2.0.3" class="anchored" data-anchor-id="fitting-nor"><span class="header-section-number">1.2.0.3</span> Fitting NOR</h4>
-</section>
-<section id="fitting-not" class="level4" data-number="1.2.0.4">
-<h4 data-number="1.2.0.4" class="anchored" data-anchor-id="fitting-not"><span class="header-section-number">1.2.0.4</span> Fitting NOT</h4>
-</section>
+<p>For AND,</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    plot_MPFunction(<span class="dv">2</span>) <span class="co"># theta = 2 for AND</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mcculloch-pitts-neuron_files/figure-html/cell-5-output-1.png" width="571" height="411"></p>
+</div>
+</div>
+<p>For NAND,</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    plot_MPFunction(<span class="dv">0</span>, (<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mcculloch-pitts-neuron_files/figure-html/cell-6-output-1.png" width="571" height="411"></p>
+</div>
+</div>
+<p>There are many boolean functions which the MP Neuron cannot fit.</p>
 <section id="a-systematic-method-to-fit" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="a-systematic-method-to-fit"><span class="header-section-number">1.2.1</span> A systematic method to fit</h3>
-<p>A systematic method to fit some boolean function follows.</p>
+<p>You must also prove that this method is definately the most effecient way to do things.</p>
 </section>
 </section>
 <section id="geometric-interpretation" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="geometric-interpretation"><span class="header-section-number">1.3</span> Geometric interpretation</h2>
+<p>The geometrical interpretation of the MP Neuron can be found by looking at it’s decision boundary. The decision boundary in the case where <span class="math inline">\(N=\phi\)</span> is given by the equation, <span class="math display">\[
+    \sum\limits_{i = 1}^n x_i = \theta
+\]</span></p>
+<p>this is nothing but a straight line in the cartesian plane when <span class="math inline">\(n = 2\)</span>. Below is a plot of thE decision boundary when trying to fit the AND and OR function.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot_MPFunction(<span class="dv">2</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>line_xs <span class="op">=</span> torch.arange(<span class="dv">0</span>, <span class="dv">200</span>)<span class="op">/</span><span class="dv">100</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>line_ys <span class="op">=</span> <span class="dv">2</span> <span class="op">-</span> line_xs</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.plot(line_xs, line_ys)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plot_MPFunction(<span class="dv">1</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>line_xs <span class="op">=</span> torch.arange(<span class="dv">0</span>, <span class="dv">100</span>)<span class="op">/</span><span class="dv">100</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>line_ys <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> line_xs</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.plot(line_xs, line_ys)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="mcculloch-pitts-neuron_files/figure-html/cell-7-output-1.png" width="579" height="411"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="mcculloch-pitts-neuron_files/figure-html/cell-7-output-2.png" width="571" height="411"></p>
+</div>
+</div>
+<p>By adjusting the value of <span class="math inline">\(\theta\)</span> we can only change the perpendicular distance between the linear decision boundary and the origin. However, if <span class="math inline">\(N\neq\phi\)</span> then the decision boundary becomes non-linear.</p>
 </section>
 <section id="limitations" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="limitations"><span class="header-section-number">1.4</span> Limitations</h2>

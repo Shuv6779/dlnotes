@@ -1,5 +1,5 @@
 ---
-title: "Mathematics"
+title: "Machine Learning"
 format: html
 unnumbered: true
 ---
