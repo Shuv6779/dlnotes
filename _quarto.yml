@@ -29,6 +29,7 @@ book:
   - part: pytorch-experiments/pytorch-experiments.qmd
     chapters:
       - pytorch-experiments/indexing.qmd
+      - pytorch-experiments/basic_tensor_one.ipynb
   - references.qmd
 
 
