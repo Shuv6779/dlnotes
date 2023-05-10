@@ -1,6 +1,6 @@
 # Prerequisite Topology
 
-## Linearly serperable set of points {#sec-linearly_seperable_points}
+## Linearly serparable set of points {#sec-linearly_seperable_points}
 there is something here.
 
 ## Bounded points {#sec-bounded_points}
