@@ -1,4 +1,0 @@
-# Boolean Logic
-
-## Boolean function {#sec-boolean_function}
-Let $X$ be the set of all possible boolean $n$-tuples. Then, a function $f:X\to \{0, 1\}$ is called a boolean function with $n$ inputs.

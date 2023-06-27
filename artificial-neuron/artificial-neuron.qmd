@@ -1,6 +1,0 @@
----
-title: "The Artificial Neuron"
-format: html
-unnumbered: true
----
-
