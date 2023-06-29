@@ -1,21 +1,49 @@
 # Top journals 
-- IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)
-- IEEE Transactions on Neural Networks and Learning Systems
-- IEEE Transactions on Image Processing 
-- Elsevier Pattern Recognition
-- Elsevier Neural Networks
-- Elsevier Neurocomputing
+- IEEE Journals
+    - IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)
+    - IEEE Transactions on Neural Networks and Learning Systems
+    - IEEE Transactions on Image Processing
+    - Additional Information:
+        - https://journals.ieeeauthorcenter.ieee.org/become-an-ieee-journal-author/
+        - https://www.computer.org/publications : ?
+        - https://mc.manuscriptcentral.com/tpami-cs : Submission site for TPAMI
+        - https://mc.manuscriptcentral.com/tnnls : Submission site for TNNLS
+        - Articles can be submitted throughout the year. 
+- Elsevier Journals
+    - Elsevier Pattern Recognition
+    - Elsevier Neural Networks
+    - Elsevier Neurocomputing
+    - Additional Information:
+       - For pattern recognition:
+        https://www.elsevier.com/journals/pattern-recognition/0031-3203/guide-for-authors
+        - For neural networks:
+        https://www.elsevier.com/journals/neural-networks/0893-6080/guide-for-authors
+        - https://www.elsevier.com/journals/neurocomputing/0925-2312/guide-for-authors
+        - Article submission link for pattern recognition: https://www.editorialmanager.com/pr/default2.aspx
 - JMLR
+    - Additional information:
+        - https://jmlr.csail.mit.edu/author-info.html : General instruction
 
 # Top Conferences
 
-## Deep learning
+## Machine/Deep learning
 - https://nips.cc/
    Conference on Neural Information Processing Systems
 - https://icml.cc/
     International Conference on Machine Learning
 - https://iclr.cc/
     International Conference on Learning Representations
+## Computer vision
+- CVPR
+- ICCV
+- ECCV
+## Artificial Intelligence
+- AAAI
+- AISTATS
+- ICANN
+- IJCAI
+- UAI
+
     
 
 # Advice
