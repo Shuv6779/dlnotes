@@ -18,8 +18,10 @@
         https://www.elsevier.com/journals/pattern-recognition/0031-3203/guide-for-authors
         - For neural networks:
         https://www.elsevier.com/journals/neural-networks/0893-6080/guide-for-authors
-        - https://www.elsevier.com/journals/neurocomputing/0925-2312/guide-for-authors
-        - Article submission link for pattern recognition: https://www.editorialmanager.com/pr/default2.aspx
+        - For Neurocomputing :
+        https://www.elsevier.com/journals/neurocomputing/0925-2312/guide-for-authors
+        - Article submission link for pattern recognition:
+        https://www.editorialmanager.com/pr/default2.aspx
 - JMLR
     - Additional information:
         - https://jmlr.csail.mit.edu/author-info.html : General instruction
@@ -27,12 +29,12 @@
 # Top Conferences
 
 ## Machine/Deep learning
-- https://nips.cc/
-   Conference on Neural Information Processing Systems
-- https://icml.cc/
-    International Conference on Machine Learning
-- https://iclr.cc/
-    International Conference on Learning Representations
+- Conference on Neural Information Processing Systems
+    https://nips.cc/ 
+- International Conference on Machine Learning
+    https://icml.cc/
+- International Conference on Learning Representations
+    https://iclr.cc/
 ## Computer vision
 - CVPR
 - ICCV
@@ -57,6 +59,7 @@
 - Deep Learning (DL)
 - Computer Vision (CV)
 - Data Mining
+- Transfer Learning
 
 # Trackers
 - https://aideadlin.es/calendar/?sub=ML,CV,CG,NLP,RO,SP,DM,AP,KR,HCI
