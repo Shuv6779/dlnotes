@@ -1,3 +1,8 @@
+# Top competitions
+
+## Articles
+- https://towardsdatascience.com/12-data-science-ai-competitions-to-advance-your-skills-in-2021-32e3fcb95d8c
+
 # Top journals 
 - IEEE Journals
     - IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)
@@ -28,13 +33,31 @@
 
 # Top Conferences
 
+## List of first conference deadlines/starts (related to the submission of papers)
+
+- ICLR : Abstract submission deadline : Sep 21 -1  
+- AISTATS : Paper submission deadline : Oct 12 -1
+- ICML : Paper submissions open : Jan 09 0
+- COLT : Paper submission deadline : Feb 10 0
+- NIPS : Abstract submission deadline : May 11 0
+
 ## Machine/Deep learning
+
 - Conference on Neural Information Processing Systems
     https://nips.cc/ 
 - International Conference on Machine Learning
     https://icml.cc/
 - International Conference on Learning Representations
     https://iclr.cc/
+- Conference on Neural Information Processing Systems
+    https://nips.cc/
+- International Conference on Machine Learning
+    https://icml.cc/
+- International Conference on Learning Representations
+    https://iclr.cc/
+- AISTATS
+- COLT
+-
 ## Computer vision
 - CVPR
 - ICCV
@@ -44,9 +67,9 @@
 - AISTATS
 - ICANN
 - IJCAI
-- UAI
-
-    
+- UAI 
+# NLP
+- NAACL
 
 # Advice
 - How to be a good reviewer (ICML)
