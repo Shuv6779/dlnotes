@@ -5,7 +5,7 @@
 
 # Top journals 
 - IEEE Journals
-    - [IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)](<https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)
+    - [IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)
         Submission site for TPAMI : https://mc.manuscriptcentral.com/tpami-cs
     - [IEEE Transactions on Neural Networks and Learning Systems (TNNLS)](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385)
         Submission site for TNNLS : https://mc.manuscriptcentral.com/tnnls 
@@ -24,7 +24,7 @@
         - Articles can be submitted throughout the year.
 
 
-- [JMLR] (https://www.jmlr.org/)
+- [JMLR](https://www.jmlr.org/)
     - Proceedings of Machine Learning Research
     - Data-centric Machine Learning Research
     - Transactions on Machine Learning Research
@@ -47,18 +47,18 @@
 - [Conference on Neural Information Processing Systems] (https://nips.cc/)
 - [International Conference on Machine Learning](https://icml.cc/)
 - [International Conference on Learning Representations](https://iclr.cc/)
-- [International Conference on Artificial Intelligence and Statistics (AISTATS)](https://aistats.org/) ## Website dormant since last conference last year.
 - [Conference on Learning Theory](https://www.learningtheory.org/colt2023/index.html)
+- Deep Learning and Reinforcement Learning Summer School (DLRL Summer School)
 
 ## Computer vision
-- CVPR
-- ICCV
-- ECCV
+- [Computer Vision and Pattern Recognition (CVPR)](https://cvpr.thecvf.com/Conferences/2024) : Paper registration deadline :  Nov 03 2023
+- International Conference on Computer Vision (ICCV)
+- European Conference on Computer Vision (ECCV)
 ## Artificial Intelligence
-- AAAI
-- AISTATS
+- Association for the Advancement of Artificial Intelligence Conference (AAAI)
+- [International Conference on Artificial Intelligence and Statistics (AISTATS)](https://aistats.org/) ## Website dormant since last conference last year.
 - ICANN
-- IJCAI
+- [International Joint Conference on Artificial Intelligence (IJCAI)](https://ijcai-23.org/) : Abstract submission deadline : Jan 11 2023
 - UAI 
 # NLP
 - NAACL
